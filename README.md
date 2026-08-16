@@ -23,3 +23,9 @@ https://m.devoxx.com/events/dvbe26/talks/8190/technical-workshop-on-ainative-too
 - Java 25 installed
 - Maven 3.9.14 installed
 - IDE like Intellij or VSCode
+
+## Run in local the slides
+
+```bash
+jwebserver -p 8050 -d "$(pwd)/docs/"
+```
