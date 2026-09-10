@@ -12,14 +12,153 @@
     <link rel="stylesheet" href="dist/theme/white.css">
     <link rel="stylesheet" href="plugin/highlight/monokai.css">
     <style>
-        .footer {
-            position: absolute;
-            left: 10px;
-            bottom: 0;
-            z-index: 999;
-            background: #fff;
-            margin-bottom: 10px;
-            padding-bottom: 0;
+        :root {
+            --risk: #c62828;
+            --context: #1565c0;
+            --evidence: #2e7d32;
+            --local: #5f6368;
+            --agent: #6a1b9a;
+            --surface: #f7f8fa;
+        }
+
+        .reveal h2 {
+            font-size: 1.55em;
+        }
+
+        .reveal .grid-2,
+        .reveal .grid-3 {
+            display: grid;
+            gap: .7em;
+            align-items: stretch;
+        }
+
+        .reveal .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .reveal .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .reveal .card {
+            border: 3px solid var(--local);
+            border-radius: 14px;
+            padding: .65em;
+            background: var(--surface);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, .08);
+        }
+
+        .reveal .card.evidence {
+            border-color: var(--evidence);
+        }
+
+        .reveal .card.context {
+            border-color: var(--context);
+        }
+
+        .reveal .card.agent {
+            border-color: var(--agent);
+        }
+
+        .reveal .context {
+            color: var(--context);
+        }
+
+        .reveal .card,
+        .reveal .card * {
+            color: #000;
+        }
+
+        .reveal .compact {
+            font-size: .72em;
+        }
+
+        .reveal .statement {
+            font-size: 1.5em;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .reveal .statement.impact {
+            font-size: 2.2em;
+        }
+
+        .reveal .risk {
+            color: var(--risk);
+        }
+
+        .reveal table.cmd-table {
+            width: 100%;
+            font-size: .5em;
+            border-collapse: collapse;
+            margin-top: 1.2em;
+        }
+
+        .reveal table.cmd-table td {
+            vertical-align: top;
+            text-align: left;
+            padding: .45em .6em;
+            border-bottom: 1px solid #dcdfe4;
+        }
+
+        .reveal table.cmd-table td:first-child {
+            white-space: nowrap;
+            width: 1%;
+        }
+
+        .reveal table.cmd-table code {
+            background: var(--surface);
+            padding: .1em .35em;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        .reveal .step-label {
+            font-size: .6em;
+            text-align: left;
+            letter-spacing: .1em;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: .2em;
+        }
+
+        .reveal dl.guidance {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: .25em 1em;
+            font-size: .5em;
+            text-align: left;
+            margin: 0 0 .5em;
+        }
+
+        .reveal dl.guidance dt {
+            font-weight: 800;
+            color: var(--evidence);
+            white-space: nowrap;
+        }
+
+        .reveal dl.guidance dd {
+            margin: 0;
+            color: #40454c;
+        }
+
+        .reveal .note-mark {
+            color: var(--risk);
+            font-weight: 800;
+        }
+
+        .reveal .footnote {
+            font-size: .42em;
+            text-align: left;
+            color: #60656c;
+            margin-top: .8em;
+        }
+
+        .reveal .lead-note {
+            font-size: .5em;
+            text-align: left;
+            color: #60656c;
+            margin: 0 0 .6em;
         }
     </style>
 
@@ -28,16 +167,11 @@
 
 <body>
     <div class="reveal">
-        <div class="footer">
-            <small>
-                <a href="https://twitter.com/juanantoniobm" target="_blank">Twitter: @juanantoniobm</a>
-            </small>
-        </div>
         <div class="slides">
             <section class="title-slide" data-background-image="./images/pillars2.jpg">
                 <h1>
                     <span style="display: inline-block; color: black; background: #ffffff;">
-                        AI-Native Tooling for Java Development 
+                        AI-Native Tooling for Java Development
                     </span>
                 </h1>
                 <p>
@@ -80,7 +214,7 @@
                             <td><img src="./images/leandroAvatar.jpg" width="70%" alt="Juan Antonio Breña Moral" /></td>
                             <td style="color: #336699; vertical-align: top">
                                 Leandro Loureiro<br />
-                                <div style="display:inline-block;">Engineering Manager @ ING NL</div>
+                                <div style="display:inline-block; white-space: nowrap;">Engineering Manager @ ING</div>
                                 <br />
                                 <a target="_blank" href="https://github.com/lealoureiro">GitHub</a> |
                                 <a target="_blank" href="https://nl.linkedin.com/in/lealoureiro">LinkedIn</a>
@@ -93,10 +227,209 @@
             <section>
                 <h2>Agenda · 30 minutes</h2>
                 <ol>
-                    <li>PENDING</li>
+                    <li>Intro</li>
+                    <li>The problem</li>
+                    <li>A way to address it?</li>
+                    <li>Plinth as AI-Native workflow</li>
+                    <li>Workflow deepdive</li>
                 </ol>
             </section>
 
+            <section>
+                <h2>Intro</h2>
+                <br />
+                <p>AI is <b>changing</b> software engineering</p>
+                <p>The way we work is <b>already</b> different</p>
+                <p>new way of working, <b>new challenges</b> to address</p>
+                <p>Let's start with the most <b>visible</b> one: speed</p>
+            </section>
+
+            <section>
+                <section>
+                    <h2>The Problem</h2>
+                    <br />
+                    <p>You <b>can</b> 10x code implementation</p>
+                    <p><b>But</b> you <b>can't</b> 10x the requirements</p>
+                    <p>Otherwise you 10x the <b>wrong</b> thing</p>
+                </section>
+                <section>
+                    <h2>Everything can be green...</h2>
+                    <div class="grid-3 compact">
+                        <div class="card evidence">✓ Compiles</div>
+                        <div class="card evidence">✓ Unit tests</div>
+                        <div class="card evidence">✓ Integration tests</div>
+                    </div>
+                    <p class="statement risk impact">💥 Production breaks</p>
+                    <p>The checks proved the implementation</p>
+                    <p>not the whole consequence!</p>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>A way to address it?</h2>
+                    <h2>Correctness by construction</h2>
+                </section>
+                <section>
+                    <br />
+                    <h2>Go 1x on the spec</h2>
+                    <h2>10x on the code</h2>
+                    <div class="grid-2 compact">
+                        <div class="card context">
+                            <strong>1x · Design</strong>
+                            <br />
+                            Invest quality time gathering and refining the requirements
+                        </div>
+                        <div class="card evidence">
+                            <strong>10x · Implementation</strong>
+                            <br />
+                            Safe to accelerate: intent, constraints and verification path are already defined
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h2>What is Plinth?</h2>
+                    <p style="font-style: italic;font-size: 22px;">An opinionated AI-native workflow for evolving modern
+                        Java Enterprise SDLC practices through reusable Skills, Agents, Commands & MCP servers.</p>
+                    <ul style="font-size: .7em;">
+                        <li>13 Commands</li>
+                        <li>9 Agents</li>
+                        <li>125 Skills</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>From an intent...</h3> 
+                    <h3>to a validated change</h3>
+                    <small>
+                        <p style="text-align: left; margin-bottom: .3em;">Typical workflow:</p>
+                        <div class="card agent compact">
+                            <div><code>/onboarding</code></div>
+                            <div class="arrow">↓</div>
+                            <div><strong>Issue</strong></div>
+                            <div class="arrow">↓</div>
+                            <div><code>/update-issue</code> → <code>/explore-problem</code> →
+                                <code>/create-acceptance-criteria</code></div>
+                            <div class="arrow">↓</div>
+                            <div><code>/create-spec</code> → <code>/explore-design</code></div>
+                            <div class="arrow">↓</div>
+                            <div><code>/implement-spec</code> → <code>/close-spec</code></div>
+                        </div>
+                    </small>
+                    <p><small><a href="https://github.com/jabrena/plinth"
+                                target="_blank">github.com/jabrena/plinth</a></small></p>
+                </section>
+                <section>
+                    <h2>You decide how to use it</h2>
+                    <ol>
+                        <li>Use the AI-Native development workflow</li>
+                        <li>Refactor your code with Skills and Agents</li>
+                        <li>...</li>
+                    </ol>
+                </section>
+                <section>
+                    <h2>What is OpenSpec?</h2>
+                    <p style="font-style: italic; font-size: 22px;">A lightweight and configurable framework for
+                        creating and managing software specifications.</p>
+                    <div class="card evidence" style="text-align: center; margin-bottom: .7em;">
+                        <p class="statement" style="font-size: 1em; margin: 0 0 .5em;">Build the <b>right
+                                thing</b>, and build it <b>right</b></p>
+                        <p style="font-size: .5em; margin: 0;">Capture what you want to build in a spec, and keep your
+                            team and your coding agents aligned as the work evolves.</p>
+                    </div>
+                    <div class="grid-3 compact">
+                        <div class="card context"><strong>Refine</strong><br />the requirements</div>
+                        <div class="card context"><strong>Validate</strong><br />that they describe the right thing
+                        </div>
+                        <div class="card evidence"><strong>Verify</strong><br />that the implementation matches</div>
+                    </div>
+                    <div class="card agent" style="font-size: .48em; text-align: left; margin-top: .7em;">
+                       Plinth orchestrates spec implementation by reusing OpenSpec primitives
+                    </div>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h3>Let's dive deeper into the workflow</h3>
+                </section>
+                <section>
+                    <h2 class="step-label context">Functional Specification</h2>
+                    <p class="lead-note">Turn an idea into an actionable change with user stories, GitHub Issues or
+                        Jira, ADRs, diagrams, AI plan mode, and OpenSpec.</p>
+                    <table class="cmd-table">
+                        <tr>
+                            <td><code>/onboarding</code> <sup class="note-mark">*</sup></td>
+                            <td>Establish root repository guidance and one unambiguous OpenSpec project before issue
+                                work.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/update-issue</code></td>
+                            <td>Update an existing GitHub or Jira issue with a structured user story, acceptance
+                                criteria, and resource content.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/explore-problem</code></td>
+                            <td>Evaluate an issue from five perspectives and post a Functional Specification comment on
+                                the issue.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/create-acceptance-criteria</code></td>
+                            <td>Derive Gherkin acceptance criteria from a Functional Specification and post them as a
+                                separate issue comment.</td>
+                        </tr>
+                    </table>
+                    <p class="footnote"><span class="note-mark">*</span> Only needs to be done once per repository /
+                        project.</p>
+                </section>
+                <section>
+                    <h2 class="step-label" style="color: var(--agent);">Technical Specification</h2>
+                    <table class="cmd-table">
+                        <tr>
+                            <td><code>/create-adr</code> <em>(optional)</em></td>
+                            <td>Record an architectural decision, its alternatives, rationale, and consequences.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/create-diagram</code> <em>(optional)</em></td>
+                            <td>Create a focused architecture or design diagram from approved artifacts.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/create-spec</code> <em>(OpenSpec)</em></td>
+                            <td>Create or update one or more validated OpenSpec changes.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/explore-design</code></td>
+                            <td>Compare technical approaches and obtain an approved design direction.</td>
+                        </tr>
+                    </table>
+                </section>
+                <section>
+                    <h2 class="step-label" style="color: var(--evidence);">Build</h2>
+                    <p class="lead-note">Implement and improve Java applications with guidance on:</p>
+                    <dl class="guidance">
+                        <dt>Practices</dt>
+                        <dd>design · coding · testing · security · documentation</dd>
+                        <dt>Build</dt>
+                        <dd>Maven</dd>
+                        <dt>Frameworks</dt>
+                        <dd>Spring Boot · Quarkus · Micronaut</dd>
+                        <dt>API &amp; mocking</dt>
+                        <dd>OpenAPI · WireMock</dd>
+                    </dl>
+                    <table class="cmd-table">
+                        <tr>
+                            <td><code>/implement-spec</code></td>
+                            <td>Deliver an approved plan or validated OpenSpec task list through framework-aware
+                                delegation.</td>
+                        </tr>
+                        <tr>
+                            <td><code>/close-spec</code></td>
+                            <td>Archive an OpenSpec change by name using the OpenSpec CLI.</td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
         </div>
     </div>
 
