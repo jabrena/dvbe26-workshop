@@ -166,10 +166,66 @@
                 </section>  
                 <section>
                     <h2>Refactor the code with Skills</h2>
-                    <p>
-                        PENDING
-                    </p>
-                </section>              
+                    <div class="compact" style="display: grid; grid-template-columns: max-content; justify-content: center; gap: .5em;">
+                        <div class="card evidence" style="text-align: left; padding: .4em .8em;">
+                            <h3 style="margin: 0 0 .2em;">Modern Java</h3>
+                            <div style="font-size: 0.6em; line-height: 1.3;">
+                                <code>141-java-refactoring-with-modern-features</code><br />
+                                <code>142-java-functional-programming</code><br />
+                                <code>143-java-functional-exception-handling</code><br />
+                                <code>144-java-data-oriented-programming</code>
+                            </div>
+                        </div>
+                        <div class="card context" style="text-align: left; padding: .4em .8em;">
+                            <h3 style="margin: 0 0 .2em;">Design</h3>
+                            <div style="font-size: 0.6em; line-height: 1.3;">
+                                <code>121-java-object-oriented-design</code><br />
+                                <code>122-java-type-design</code><br />
+                                <code>123-java-design-patterns</code>
+                            </div>
+                        </div>
+                        <div class="card agent" style="text-align: left; padding: .4em .8em;">
+                            <h3 style="margin: 0 0 .2em;">Coding</h3>
+                            <div style="font-size: 0.6em; line-height: 1.3;">
+                                <code>126-java-exception-handling</code><br />
+                                <code>128-java-generics</code><br />
+                                <code>124-java-secure-coding</code>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.4em;"><a href="https://github.com/jabrena/plinth/blob/main/documentation/guides/INVENTORY-SKILLS-JAVA.md"
+                            target="_blank">Skills inventory for Java</a></p>
+                </section>
+                <section>
+                    <h2>Refactor the code with Skills</h2>
+                    <div class="compact" style="display: grid; grid-template-columns: max-content; justify-content: center; gap: .5em;">
+                        <div class="card risk" style="text-align: left; padding: .4em .8em;">
+                            <h3 style="margin: 0 0 .2em;">Architecture</h3>
+                            <div style="font-size: 0.6em; line-height: 1.3;">
+                                <code>033-architecture-diagrams</code><br />
+                                <code>034-architecture-design-exploration</code><br />
+                                <code>030-architecture-adr-general</code>
+                            </div>
+                        </div>
+                        <div class="card" style="border-color: #ef6c00; color: #ef6c00; text-align: left; padding: .4em .8em;">
+                            <h3 style="margin: 0 0 .2em;">Build · Maven</h3>
+                            <div style="font-size: 0.6em; line-height: 1.3;">
+                                <code>110-java-maven-best-practices</code><br />
+                                <code>111-java-maven-dependencies</code><br />
+                                <code>112-java-maven-plugins</code>
+                            </div>
+                        </div>
+                        <div class="card" style="border-color: #00838f; color: #00838f; text-align: left; padding: .4em .8em;">
+                            <h3 style="margin: 0 0 .2em;">Testing</h3>
+                            <div style="font-size: 0.6em; line-height: 1.3;">
+                                <code>130-java-testing-strategies</code><br />
+                                <code>131-java-testing-unit-testing</code>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.4em;"><a href="https://github.com/jabrena/plinth/blob/main/documentation/guides/INVENTORY-SKILLS-JAVA.md"
+                            target="_blank">Skills inventory for Java</a></p>
+                </section>
             </section>
 
             <section>
@@ -331,9 +387,69 @@
             <section>
                 <section>
                     <h2>Refactor the code with Skills</h2>
-                    <p>
-                        PENDING
-                    </p>
+                </section>
+                <section>
+                    <h2 class="evidence">Modern Java</h2>
+                    <table style="font-size: 0.5em; width: 130%; margin-left: -15%;">
+                        <tr>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;"><code>141-java-refactoring-with-modern-features</code></td>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;">Add Modern Java Features</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="muted" style="border: none; padding: .15em .6em; font-size: 0.8em; white-space: nowrap;">Lambdas &amp; method references · Stream API · <code>Optional</code> · <code>java.time</code> · <code>var</code> · <code>List.of()</code> · text blocks · Java 25 features</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;"><code>142-java-functional-programming</code></td>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;">Add Functional Programming style</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="muted" style="border: none; padding: .15em .6em; font-size: 0.8em; white-space: nowrap;">Records &amp; immutability · pure functions · function composition · pattern matching · sealed types · Stream Gatherers</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;"><code>143-java-functional-exception-handling</code></td>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;">Apply functional programming approaches for error handling</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="muted" style="border: none; padding: .15em .6em; font-size: 0.8em; white-space: nowrap;"><code>Optional</code> &amp; VAVR <code>Either</code> over exceptions · sealed error hierarchies · <code>map</code>/<code>flatMap</code> error pipelines</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;"><code>144-java-data-oriented-programming</code></td>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;">Add Data Oriented Programming</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="muted" style="border: none; padding: .15em .6em; font-size: 0.8em; white-space: nowrap;">Separate data from behavior with records · immutable data &amp; pure transformations · flat data with ID references · pure validation</td>
+                        </tr>
+                    </table>
+                    <p style="font-size: 0.4em;"><a href="https://github.com/jabrena/plinth/blob/main/documentation/guides/INVENTORY-SKILLS-JAVA.md"
+                            target="_blank">Skills inventory for Java</a></p>
+                </section>
+                <section>
+                    <h2 class="context">Design</h2>
+                    <table style="font-size: 0.5em; width: 130%; margin-left: -15%;">
+                        <tr>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;"><code>121-java-object-oriented-design</code></td>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;">Apply Object Oriented Design principles</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="muted" style="border: none; padding: .15em .6em; font-size: 0.8em; white-space: nowrap;">SOLID · DRY · YAGNI · composition over inheritance · encapsulation · code smells: God Class, Feature Envy, Data Clumps</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;"><code>122-java-type-design</code></td>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;">Review Type Design in development</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="muted" style="border: none; padding: .15em .6em; font-size: 0.8em; white-space: nowrap;">Value objects over primitive obsession · type-safe wrappers · generics · fluent interfaces · <code>BigDecimal</code> for money</td>
+                        </tr>
+                        <tr>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;"><code>123-java-design-patterns</code></td>
+                            <td style="border: none; padding: 1.8em .6em .4em; white-space: nowrap;">Select and apply Java, REST, event-driven, persistence, and integration patterns</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="muted" style="border: none; padding: .15em .6em; font-size: 0.8em; white-space: nowrap;">Creational, structural &amp; behavioral patterns · REST contracts · Kafka outbox &amp; sagas · repositories &amp; transactions · anti-corruption layers</td>
+                        </tr>
+                    </table>
+                    <p style="font-size: 0.4em;"><a href="https://github.com/jabrena/plinth/blob/main/documentation/guides/INVENTORY-SKILLS-JAVA.md"
+                            target="_blank">Skills inventory for Java</a></p>
                 </section> 
             </section>
         </div>
