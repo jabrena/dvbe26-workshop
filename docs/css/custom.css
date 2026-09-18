@@ -258,3 +258,8 @@
 .reveal blockquote {
     width: 88%;
 }
+
+.reveal .footnote {
+    font-size: .2em;
+    color: #60656c;
+}

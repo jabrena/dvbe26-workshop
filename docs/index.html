@@ -252,17 +252,37 @@
                                 target="_blank">github.com/jabrena/plinth</a></small></p>
                 </section>
                 <section>
-                    <h2>Onboarding</h2>
-                    <small>
-                        <table>
-                            <tr>
-                                <td><code>/onboarding</code> *</td>
-                                <td>Establish root repository guidance and one unambiguous OpenSpec project before issue
-                                    work.</td>
-                            </tr>
-                        </table>
-                    </small>
-                    <p class="footnote"><span class="note-mark">*</span> Only needs to be done once per repository /
+                    <h2><code style="font-size: 1.6em;">/onboarding</code></h2>
+                    <p style="font-size: .6em;"><br />Makes the repository ready to work with Plinth AI native workflow<br/>
+                        by securing two prerequisites:</p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Root <code>AGENTS.md</code></strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                Repository-specific instructions for the coding agent<br />
+                                <span class="muted">Interactive: asks 6 questions, one by one</span>
+                                <ol style="margin: .3em 0 0 1.2em;">
+                                    <li><strong>Role</strong> <span class="muted">· backend, full-stack, DevOps,
+                                            architecture…</span></li>
+                                    <li><strong>Tech stack</strong> <span class="muted">· Java version, build tool,
+                                            frameworks</span></li>
+                                    <li><strong>File structure</strong> <span class="muted">· read-only vs. editable
+                                            folders</span></li>
+                                    <li><strong>Commands</strong> <span class="muted">· build, test, run</span></li>
+                                    <li><strong>Git workflow</strong> <span class="muted">· commit style, PR
+                                            checklist</span></li>
+                                    <li><strong>Boundaries</strong> <span class="muted">· always, ask first, never</span></li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Init OpenSpec project</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                Creates OpenSpec project structure by running openspec init<br />
+                            </div>
+                        </div>
+                    </div>
+                    <p class="footnote" style="font-size: 18px; color: #60656c;"><span class="note-mark">*</span> Only needs to be done once per repository /
                         project.</p>
                 </section>
                 <section>
