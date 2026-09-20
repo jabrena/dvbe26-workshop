@@ -428,18 +428,16 @@
                 </section>
                 <section>
                     <h2>Technical Specification</h2>
-                    <small>
-                        <table>
-                            <tr>
-                                <td><code>/create-spec</code> <em>(OpenSpec)</em></td>
-                                <td>Create or update one or more validated OpenSpec changes.</td>
-                            </tr>
-                            <tr>
-                                <td><code>/explore-design</code></td>
-                                <td>Compare technical approaches and obtain an approved design direction.</td>
-                            </tr>
-                        </table>
-                    </small>
+                    <br/>
+                    <div class="flow compact" style="grid-template-columns: auto max-content auto;">
+                        <div class="card agent contact" style="white-space: nowrap;">
+                            <code style="font-size: .7em;">/create-spec</code>
+                        </div>
+                        <div class="arrow">&rarr;</div>
+                        <div class="card agent contact" style="white-space: nowrap;">
+                            <code style="font-size: .7em;">/explore-design</code>
+                        </div>
+                    </div>
                 </section>
                 <section>
                     <h2>What is OpenSpec?</h2>
@@ -462,19 +460,131 @@
                     </div>
                 </section>
                 <section>
+                    <h2><code style="font-size: 1.4em;">/create-spec</code></h2>
+                    <p style="font-size: 0.7em;"><br />Turns approved material into a validated OpenSpec change<br />
+                    </p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Input</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>Issue or user story with its acceptance criteria</li>
+                                    <li>Approved design, ADRs or implementation plan</li>
+                                    <li>An existing OpenSpec change to update</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Output</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>Proposal, design, specs and task list</li>
+                                    <li>Requirements as Given / When / Then scenarios</li>
+                                    <li>Validation and traceability report</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2><code style="font-size: 1.4em;">/explore-design</code></h2>
+                    <p style="font-size: .7em;"><br/>Refine the technical design of an issue or OpenSpec change before implementation.</p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Input</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>OpenSpec change with an unresolved approach</li>
+                                    <li>Architecture context and constraints</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Output</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>Alternatives, trade-offs and rejected options</li>
+                                    <li>Recommended direction with rationale</li>
+                                    <li>Components, data flow, failure handling, testing strategy</li>
+                                    <li>ADR candidates and open questions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card agent" style="font-size: .48em; text-align: left; margin-top: .7em;">
+                    <ul style="margin: 0 0 0 1.1em;">
+                        <li>A recommendation is not a decision: nothing is approved until a human confirms it</li>
+                    </ul>
+                    </div>
+                </section>
+                <section>
                     <h2>Technical Specification</h2>
-                    <small>
-                        <table>
-                            <tr>
-                                <td><code>/create-adr</code> <em>(optional)</em></td>
-                                <td>Record an architectural decision, its alternatives, rationale, and consequences.</td>
-                            </tr>
-                            <tr>
-                            <td><code>/create-diagram</code> <em>(optional)</em></td>
-                            <td>Create a focused architecture or design diagram from approved artifacts.</td>
-                            </tr>
-                        </table>
-                    </small>
+                    <p style="font-size: .6em;">(Optional) whenever a decision or a view is worth keeping</p>
+                    <div class="grid-2 compact">
+                        <div class="card agent contact" style="white-space: nowrap;">
+                            <code style="font-size: .7em;">/create-adr</code>
+                        </div>
+                        <div class="card agent contact" style="white-space: nowrap;">
+                            <code style="font-size: .7em;">/create-diagram</code>
+                        </div>
+                    </div>
+                    <br/>
+                    <p class="footnote" style="font-size: 18px; color: #60656c;">ADR &middot;
+                        Architecture Decision Record: a short document capturing one decision, its context and its
+                        consequences.</p>
+                </section>
+                <section>
+                    <h2><code style="font-size: 1.4em;">/create-adr</code></h2>
+                    <p style="font-size: .7em;"><br />Records an architectural decision that has already been taken
+                    </p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Input</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>Approved design, issue, spec or plan</li>
+                                    <li>Existing constraints and related ADRs</li>
+                                    <li>Optional type: general, functional, non-functional</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Output</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>One ADR following the repository convention</li>
+                                    <li>Status, rationale, alternatives, consequences</li>
+                                    <li>Links to the source artifacts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2><code style="font-size: 1.4em;">/create-diagram</code></h2>
+                    <p style="font-size: .7em;"><br />Draws one architecture view from the approved artifacts</p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Input</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>Issue, design, ADR, spec or repository architecture</li>
+                                    <li>Optional type: sequence, class, state machine, ER, C4</li>
+                                    <li>Audience and level of detail</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Output</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>Diagram source for that single view</li>
+                                    <li>Scope and assumptions made</li>
+                                    <li>Links to the artifacts represented</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section>
                     <h2>Build</h2>
