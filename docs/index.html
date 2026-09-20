@@ -302,6 +302,29 @@
                     </div>
                 </section>
                 <section>
+                    <h3>Why the separation and order matters</h3>
+                    <p style="font-size: .6em;">Two artifacts, two questions, two audiences</p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Functional Specification</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <em>What</em> the system must do, and <em>why</em><br />
+                                <span class="muted">approved by the business</span>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Technical Specification</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <em>How</em> to build and verify it<br />
+                                <span class="muted">approved by engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card risk" style="font-size: .48em; text-align: left; margin-top: .7em;">
+                        Decide the <em>how</em> first and it silently becomes the <em>what</em> 
+                    </div>
+                </section>
+                <section>
                     <h2>Functional Specification</h2>
                     <br/>
                     <div class="flow compact" style="grid-template-columns: auto max-content auto max-content auto;">
@@ -381,7 +404,7 @@
                 </section>
                 <section>
                     <h2><code style="font-size: .8em; white-space: nowrap;">/create-acceptance-criteria</code></h2>
-                    <p style="font-size: .6em;"><br />Turns the Functional Specification into observable Gherkin scenarios</p>
+                    <p style="font-size: .7em;"><br />Turns the Functional Specification into observable Gherkin scenarios</p>
                     <div class="grid-2 compact" style="text-align: left;">
                         <div class="card context">
                             <strong>Input</strong>
@@ -401,6 +424,7 @@
                             </div>
                         </div>
                     </div>
+                    <p style="font-size: .6em;">turns what and why into something checkable and easier to review</p> 
                 </section>
                 <section>
                     <h2>Technical Specification</h2>
