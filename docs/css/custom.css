@@ -4,6 +4,7 @@
     --evidence: #2e7d32;
     --local: #5f6368;
     --agent: #6a1b9a;
+    --build: #ef6c00;
     --surface: #f7f8fa;
 }
 
@@ -53,6 +54,10 @@
 
 .reveal .agent {
     color: var(--agent);
+}
+
+.reveal .build {
+    color: var(--build);
 }
 
 .reveal .lead {
@@ -158,9 +163,70 @@
     border-color: var(--agent);
 }
 
+.reveal .card.build {
+    border-color: var(--build);
+}
+
+.reveal .card .group-label {
+    font-size: .7em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    opacity: .85;
+    margin-bottom: .15em;
+}
+
+.reveal .arrow,
+.reveal .arrow-inline {
+    color: #000;
+}
+
+.reveal .arrow-inline {
+    margin: 0 .55em;
+}
+
 .reveal .arrow {
     font-size: 1.7em;
     align-self: center;
+}
+
+.reveal .diagram {
+    font-size: .44em;
+    line-height: 1.4;
+}
+
+.reveal .diagram .card {
+    padding: .5em .9em;
+    box-shadow: none;
+}
+
+.reveal .diagram .arrow {
+    font-size: 1.1em;
+    line-height: 1;
+    margin: .15em 0;
+}
+
+.reveal .diagram .group-label {
+    font-size: .8em;
+}
+
+.reveal .stage {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    gap: .1em 1.2em;
+    text-align: left;
+    line-height: 1.5;
+}
+
+.reveal .stage .stop {
+    color: var(--risk);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.reveal .stage .note {
+    color: var(--local);
+    white-space: nowrap;
 }
 
 .reveal .tag {
