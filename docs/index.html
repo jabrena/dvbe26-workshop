@@ -303,25 +303,104 @@
                 </section>
                 <section>
                     <h2>Functional Specification</h2>
-                    <small>
-                        <table>
-                            <tr>
-                                <td><code>/update-issue</code></td>
-                                <td>Update an existing GitHub or Jira issue with a structured user story, acceptance
-                                    criteria, and resource content.</td>
-                            </tr>
-                            <tr>
-                                <td><code>/explore-problem</code></td>
-                                <td>Evaluate an issue from five perspectives and post a Functional Specification comment on
-                                    the issue.</td>
-                            </tr>
-                            <tr>
-                                <td><code>/create-acceptance-criteria</code></td>
-                                <td>Derive Gherkin acceptance criteria from a Functional Specification and post them as a
-                                    separate issue comment.</td>
-                            </tr>
-                        </table>
-                    </small>
+                    <br/>
+                    <div class="flow compact" style="grid-template-columns: auto max-content auto max-content auto;">
+                        <div class="card agent contact" style="white-space: nowrap;">
+                            <code style="font-size: .7em;">/update-issue</code>
+                        </div>
+                        <div class="arrow">&rarr;</div>
+                        <div class="card agent contact" style="white-space: nowrap;">
+                            <code style="font-size: .7em;">/explore-problem</code>
+                        </div>
+                        <div class="arrow">&rarr;</div>
+                        <div class="card agent contact" style="white-space: nowrap;">
+                            <code style="font-size: .7em;">/create-acceptance-criteria</code>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2><code style="font-size: 1.4em;">/update-issue</code></h2>
+                    <p style="font-size: 0.7em;"><br />Rewrites an existing issue description as structured,
+                        evidence-backed content<br />
+                    </p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Input</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>GitHub or Jira issue number, key or URL</li>
+                                    <li>Optional source: notes, discussion, user story, file path</li>
+                                    <li>Current issue body and discussion are read first</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Output</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                <ul style="margin: 0 0 0 1.1em;">
+                                    <li>Structured user story in the issue description</li>
+                                    <li>Acceptance criteria or scenarios when applicable</li>
+                                    <li>Updated issue reference and URL</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2><code style="font-size: 1.4em;">/explore-problem</code></h2>
+                    <p style="font-size: .6em;"><br />Evaluates the issue through five lenses and produces a Functional Specification</p>
+                    <div class="flow compact" style="text-align: left; align-items: stretch;">
+                        <div class="card context">
+                            <strong style="font-size: .8em;">Problem framing</strong>
+                            <div style="font-size: .5em; margin-top: .3em;">Problem statement, current and desired
+                                state, stakeholders, success criteria</div>
+                        </div>
+                        <div class="card context">
+                            <strong style="font-size: .8em;">Root cause</strong>
+                            <div style="font-size: .5em; margin-top: .3em;">Five Whys, Fishbone, Current Reality Tree,
+                                constraints</div>
+                        </div>
+                        <div class="card context">
+                            <strong style="font-size: .8em;">Assumptions</strong>
+                            <div style="font-size: .5em; margin-top: .3em;">Assumptions, unknowns, validation plan</div>
+                        </div>
+                        <div class="card context">
+                            <strong style="font-size: .8em;">Context mapping</strong>
+                            <div style="font-size: .5em; margin-top: .3em;">Existing systems, integrations, ownership,
+                                external dependencies</div>
+                        </div>
+                        <div class="card context">
+                            <strong style="font-size: .8em;">Quality attributes</strong>
+                            <div style="font-size: .5em; margin-top: .3em;">Discover and prioritise what the solution
+                                must satisfy</div>
+                        </div>
+                    </div>
+                    <div class="card agent" style="font-size: .48em; text-align: left; margin-top: .7em;">
+                        Each lens asks clarifying questions when its content is vague
+                    </div>
+                </section>
+                <section>
+                    <h2><code style="font-size: .8em; white-space: nowrap;">/create-acceptance-criteria</code></h2>
+                    <p style="font-size: .6em;"><br />Turns the Functional Specification into observable Gherkin scenarios</p>
+                    <div class="grid-2 compact" style="text-align: left;">
+                        <div class="card context">
+                            <strong>Input</strong>
+                            <div style="font-size: .6em; margin-top: .3em;">
+                                The Functional Specification resulted from <code>/explore-problem</code>
+                            </div>
+                        </div>
+                        <div class="card evidence">
+                            <strong>Output</strong>
+                            <div style="font-size: .55em; margin-top: .3em; font-family: monospace;">
+                                # Acceptance Criteria<br />
+                                Feature: &lt;name&gt;<br />
+                                &nbsp;&nbsp;Scenario: &lt;observable&gt;<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;Given &lt;context&gt;<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;When &lt;event&gt;<br />
+                                &nbsp;&nbsp;&nbsp;&nbsp;Then &lt;outcome&gt;
+                            </div>
+                        </div>
+                    </div>
                 </section>
                 <section>
                     <h2>Technical Specification</h2>
