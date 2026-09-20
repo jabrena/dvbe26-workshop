@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/white.css">
     <link rel="stylesheet" href="plugin/highlight/monokai.css">
-    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.css?v=3">
 
     <link rel="icon" href="images/java-icon.png" type="image/png" />
 </head>
@@ -153,12 +153,21 @@
                             <div class="arrow">↓</div>
                             <div><strong>Issue</strong></div>
                             <div class="arrow">↓</div>
-                            <div><code>/update-issue</code> → <code>/explore-problem</code> →
-                                <code>/create-acceptance-criteria</code></div>
+                            <div class="card context" style="padding: .4em .9em; box-shadow: none;">
+                                <div class="group-label">Functional Specification</div>
+                                <div><code>/update-issue</code> <span class="arrow-inline">→</span> <code>/explore-problem</code> <span class="arrow-inline">→</span>
+                                    <code>/create-acceptance-criteria</code></div>
+                            </div>
                             <div class="arrow">↓</div>
-                            <div><code>/create-spec</code> → <code>/explore-design</code></div>
+                            <div class="card evidence" style="padding: .4em .9em; box-shadow: none;">
+                                <div class="group-label">Technical Specification</div>
+                                <div><code>/create-spec</code> <span class="arrow-inline">→</span> <code>/explore-design</code></div>
+                            </div>
                             <div class="arrow">↓</div>
-                            <div><code>/implement-spec</code> → <code>/close-spec</code></div>
+                            <div class="card build" style="padding: .4em .9em; box-shadow: none;">
+                                <div class="group-label">Build</div>
+                                <div><code>/implement-spec</code> <span class="arrow-inline">→</span> <code>/close-spec</code></div>
+                            </div>
                         </div>
                     </small>
                     <p><small><a href="https://github.com/jabrena/plinth"
@@ -240,12 +249,21 @@
                             <div class="arrow">↓</div>
                             <div><strong>Issue</strong></div>
                             <div class="arrow">↓</div>
-                            <div><code>/update-issue</code> → <code>/explore-problem</code> →
-                                <code>/create-acceptance-criteria</code></div>
+                            <div class="card context" style="padding: .4em .9em; box-shadow: none;">
+                                <div class="group-label">Functional Specification</div>
+                                <div><code>/update-issue</code> <span class="arrow-inline">→</span> <code>/explore-problem</code> <span class="arrow-inline">→</span>
+                                    <code>/create-acceptance-criteria</code></div>
+                            </div>
                             <div class="arrow">↓</div>
-                            <div><code>/create-spec</code> → <code>/explore-design</code></div>
+                            <div class="card evidence" style="padding: .4em .9em; box-shadow: none;">
+                                <div class="group-label">Technical Specification</div>
+                                <div><code>/create-spec</code> <span class="arrow-inline">→</span> <code>/explore-design</code></div>
+                            </div>
                             <div class="arrow">↓</div>
-                            <div><code>/implement-spec</code> → <code>/close-spec</code></div>
+                            <div class="card build" style="padding: .4em .9em; box-shadow: none;">
+                                <div class="group-label">Build</div>
+                                <div><code>/implement-spec</code> <span class="arrow-inline">→</span> <code>/close-spec</code></div>
+                            </div>
                         </div>
                     </small>
                     <p><small><a href="https://github.com/jabrena/plinth"

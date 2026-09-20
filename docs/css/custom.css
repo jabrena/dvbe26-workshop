@@ -4,6 +4,7 @@
     --evidence: #2e7d32;
     --local: #5f6368;
     --agent: #6a1b9a;
+    --build: #ef6c00;
     --surface: #f7f8fa;
 }
 
@@ -53,6 +54,10 @@
 
 .reveal .agent {
     color: var(--agent);
+}
+
+.reveal .build {
+    color: var(--build);
 }
 
 .reveal .lead {
@@ -156,6 +161,28 @@
 
 .reveal .card.agent {
     border-color: var(--agent);
+}
+
+.reveal .card.build {
+    border-color: var(--build);
+}
+
+.reveal .card .group-label {
+    font-size: .7em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    opacity: .85;
+    margin-bottom: .15em;
+}
+
+.reveal .arrow,
+.reveal .arrow-inline {
+    color: #000;
+}
+
+.reveal .arrow-inline {
+    margin: 0 .55em;
 }
 
 .reveal .arrow {
