@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/white.css">
     <link rel="stylesheet" href="plugin/highlight/monokai.css">
-    <link rel="stylesheet" href="css/custom.css?v=4">
+    <link rel="stylesheet" href="css/custom.css?v=9">
 
     <link rel="icon" href="images/java-icon.png" type="image/png" />
 </head>
@@ -137,13 +137,58 @@
                     </p>
                 </section>
                 <section>
-                    <h2>What scenarios solve?</h2>
-                    <ol>
-                        <li>AI-Native development workflow</li>
-                        <li>Refactor your Java code with Skills</li>
-                        <li>Knowledge Base & Skill Registry</li>
-                        <li>Knowledge Base MCP Client</li>
-                    </ol>
+                    <h2>Problems Plinth addresses</h2>
+                    <div class="problems">
+                        <div class="head">Problem</div>
+                        <div></div>
+                        <div class="head">How Plinth responds</div>
+
+                        <div class="problem">Changes that take several attempts to get right</div>
+                        <div class="arrow">&rarr;</div>
+                        <div>Code only from an approved, traced spec</div>
+
+                        <div class="problem">Features that miss what was actually needed</div>
+                        <div class="arrow">&rarr;</div>
+                        <div>Acceptance criteria agreed before code</div>
+
+                        <div class="problem">Review fatigue from large AI-generated diffs</div>
+                        <div class="arrow">&rarr;</div>
+                        <div>Small, traced tasks with test evidence</div>
+
+                        <div class="problem">The same decisions argued again during review</div>
+                        <div class="arrow">&rarr;</div>
+                        <div>Decisions and trade-offs versioned in the repo</div>
+
+                        <div class="problem">Each run solves the same task a different way</div>
+                        <div class="arrow">&rarr;</div>
+                        <div>Skills that fix the standard way to do things</div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Plinth workflows</h2>
+                    <p style="font-size: .6em; margin-bottom: .6em;">Four ways to use the toolkit</p>
+                    <div class="workflows">
+                        <div class="card agent">
+                            <div class="group-label">1 · Build a feature</div>
+                            <div class="question">AI-Native development workflow</div>
+                            <div>Takes an issue through functional spec, technical spec and build</div>
+                        </div>
+                        <div class="card evidence">
+                            <div class="group-label">2 · Improve existing code</div>
+                            <div class="question">Refactor your Java code with Skills</div>
+                            <div>Applies focused skills to existing code: modern Java, design, testing, Maven</div>
+                        </div>
+                        <div class="card context">
+                            <div class="group-label">3 · Capture knowledge</div>
+                            <div class="question">Knowledge Base &amp; Skill Registry</div>
+                            <div>Builds a wiki that the agent maintains from your sources, next to a registry of skills</div>
+                        </div>
+                        <div class="card build">
+                            <div class="group-label">4 · Reuse knowledge</div>
+                            <div class="question">Knowledge Base MCP Client</div>
+                            <div>Lets your coding agent query the knowledge base through MCP</div>
+                        </div>
+                    </div>
                 </section>
                 <section>
                     <h2>AI-Native development workflow</h2>
