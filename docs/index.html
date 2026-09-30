@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="dist/reveal.css">
     <link rel="stylesheet" href="dist/theme/white.css">
     <link rel="stylesheet" href="plugin/highlight/monokai.css">
-    <link rel="stylesheet" href="css/custom.css?v=3">
+    <link rel="stylesheet" href="css/custom.css?v=4">
 
     <link rel="icon" href="images/java-icon.png" type="image/png" />
 </head>
@@ -680,43 +680,50 @@
                 </section>
                 <section>
                     <h2><code style="font-size: 1.4em;">/implement-spec</code></h2>
-                    <p style="font-size: .55em; margin-bottom: .4em;">Gate → route → delegate → verify</p>
-                    <div class="diagram">
-                    <div class="card risk">
-                        <div class="group-label">1 · Gates &mdash; nothing happens until all pass</div>
-                        <div class="stage">
-                            <div>Artifact current, approved, consistent</div>
-                            <div class="stop">✗ STOP</div>
-                            <div>Scenarios ↔ tasks fully traceable</div>
-                            <div class="stop">✗ STOP &middot; report every gap</div>
-                            <div>Workspace clean</div>
-                            <div class="stop">✗ STOP &middot; clean, then rerun</div>
+                    <p style="font-size: .55em; margin-bottom: .6em;">The tech lead agent runs the process, but it never writes code itself</p>
+                    <div class="pipeline">
+                        <div class="card risk">
+                            <div class="group-label">1 · Gate</div>
+                            <div class="question">Is the spec ready?</div>
+                            <ul>
+                                <li>Change is current, approved and consistent</li>
+                                <li>Every scenario has a task, and every task a scenario</li>
+                                <li>Workspace is clean</li>
+                            </ul>
+                        </div>
+                        <div class="arrow">&rarr;</div>
+                        <div class="card context">
+                            <div class="group-label">2 · Route</div>
+                            <div class="question">Where, and by whom?</div>
+                            <ul>
+                                <li>Feature branch or worktree <span class="muted">(main only with explicit approval)</span></li>
+                                <li>Coder matched to the framework: Spring&nbsp;Boot, Quarkus, Micronaut, Java or non-Java</li>
+                                <li>Relevant skills picked for that coder</li>
+                            </ul>
+                        </div>
+                        <div class="arrow">&rarr;</div>
+                        <div class="card agent">
+                            <div class="group-label">3 · Delegate</div>
+                            <div class="question">Who builds what?</div>
+                            <ul>
+                                <li>Tasks split into groups, each owning its files</li>
+                                <li>Dependent groups run in order; independent ones run in parallel</li>
+                                <li>Each handoff: tasks, acceptance criteria, checks to run</li>
+                            </ul>
+                        </div>
+                        <div class="arrow">&rarr;</div>
+                        <div class="card evidence">
+                            <div class="group-label">4 · Verify</div>
+                            <div class="question">Is it really done?</div>
+                            <ul>
+                                <li>Coder returns changed files, test and build results</li>
+                                <li>Task marked done <strong>only</strong> when its acceptance criteria pass</li>
+                                <li>Blockers and risks reported</li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="arrow">&darr;</div>
-                    <div class="card context">
-                        <div class="group-label">2 · Route</div>
-                        <div class="stage">
-                            <div>Location: main &middot; feature branch &middot; worktree</div>
-                            <div class="note">main needs explicit approval</div>
-                            <div>Framework → Spring Boot &middot; Quarkus &middot; Micronaut coder</div>
-                            <div class="note">or no-java</div>
-                        </div>
-                    </div>
-                    <div class="arrow">&darr;</div>
-                    <div class="card agent">
-                        <div class="group-label">3 · Delegate &amp; verify</div>
-                        <div class="stage">
-                            <div>Split into groups, serialize by dependency</div>
-                            <div class="note">tech lead never codes</div>
-                            <div>Collect changed files, tests, build evidence</div>
-                            <div class="note">per group</div>
-                        </div>
-                    </div>
-                    <div class="arrow">&darr;</div>
-                    <div class="card evidence">
-                        Mark tasks complete <strong>only</strong> when acceptance criteria pass
-                    </div>
+                    <div class="card risk pipeline-rule">
+                        ✗ If any check fails, it <strong>stops and reports</strong>. Nothing is guessed, bypassed or invented.
                     </div>
                 </section>
                 <section>
