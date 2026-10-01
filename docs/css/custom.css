@@ -329,3 +329,122 @@
     font-size: .2em;
     color: #60656c;
 }
+
+.reveal .pipeline {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: .5em;
+    align-items: stretch;
+    font-size: .42em;
+    line-height: 1.35;
+}
+
+.reveal .pipeline .card {
+    color: #222;
+    text-align: left;
+    padding: .7em .8em;
+    box-shadow: none;
+}
+
+.reveal .pipeline .card.risk .group-label { color: var(--risk); }
+.reveal .pipeline .card.context .group-label { color: var(--context); }
+.reveal .pipeline .card.agent .group-label { color: var(--agent); }
+.reveal .pipeline .card.evidence .group-label { color: var(--evidence); }
+
+.reveal .pipeline .question {
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-bottom: .4em;
+}
+
+.reveal .pipeline ul {
+    margin: 0 0 0 1.1em;
+}
+
+.reveal .pipeline li + li {
+    margin-top: .35em;
+}
+
+.reveal .pipeline .arrow {
+    font-size: 1.6em;
+}
+
+.reveal .pipeline-rule {
+    font-size: .45em;
+    margin-top: .8em;
+    padding: .5em .9em;
+    box-shadow: none;
+}
+
+.reveal .workflows {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .7em;
+    font-size: .5em;
+    line-height: 1.35;
+}
+
+.reveal .workflows .card {
+    color: #222;
+    text-align: left;
+    padding: .8em 1em;
+    box-shadow: none;
+}
+
+.reveal .workflows .card.agent .group-label { color: var(--agent); }
+.reveal .workflows .card.evidence .group-label { color: var(--evidence); }
+.reveal .workflows .card.context .group-label { color: var(--context); }
+.reveal .workflows .card.build .group-label { color: var(--build); }
+
+.reveal .workflows .question {
+    font-weight: 700;
+    font-size: 1.15em;
+    margin-bottom: .3em;
+}
+
+.reveal .problems {
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    justify-content: center;
+    column-gap: 1em;
+    font-size: .48em;
+    line-height: 1.35;
+    text-align: left;
+    margin-top: .6em;
+}
+
+.reveal .problems > div {
+    white-space: nowrap;
+    padding: .55em 0;
+    border-bottom: 1px solid #dde1e6;
+}
+
+.reveal .problems .head {
+    font-size: .8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--local);
+    border-bottom: 3px solid var(--local);
+}
+
+.reveal .problems .problem {
+    color: var(--risk);
+    font-weight: 700;
+}
+
+.reveal .problems .arrow {
+    font-size: 1em;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.reveal .problems code {
+    font-size: .9em;
+}
+
+.reveal .problems > .arrow,
+.reveal .problems > div:nth-child(2) {
+    border-bottom: none;
+}
