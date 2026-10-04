@@ -1,37 +1,68 @@
 @startuml
 
-actor "User"
+actor "API Consumer" as Client
 
 box "Microservice scope" #LightBlue
 
-boundary "REST API"
-control "Greek God Service"
-entity "Quarkus JDBC Repository"
-database "PostgreSQL Database"
-control "God Updater"
+boundary "REST API" as Api
+control "God Analysis Service" as Service
+control "God Source Client" as Source
+control "Name Converter" as Converter
 
 end box
 
-group Write process
+participant "Greek API" as Greek
+participant "Roman API" as Roman
+participant "Nordic API" as Nordic
 
-"God Updater" -> "my-json-server": GET https://my-json-server.typicode.com/jabrena/latency-problems/greek
-"God Updater" <-- "my-json-server": List of greek gods
-"God Updater" -> "Quarkus JDBC Repository" : Upsert greek god names
-"Quarkus JDBC Repository" -> "PostgreSQL Database" : INSERT new names / keep existing IDs
+Client -> Api: GET /api/v1/gods/stats/sum?filter=N&sources=greek,roman,nordic
+Api -> Service: Calculate sum(filter, sources)
+
+group Selected sources (single attempt each, bounded connect/read timeouts, no retries)
+
+Service -> Source: Fetch gods(selected sources)
+
+par
+  Source -> Greek: GET /latency-problems/greek
+  alt Responds in time
+    Greek --> Source: List of greek gods
+  else Timeout or failure
+    Greek --> Source: Error (ignored, no contributing names)
+  end
+else
+  Source -> Roman: GET /latency-problems/roman
+  alt Responds in time
+    Roman --> Source: List of roman gods
+  else Timeout or failure
+    Roman --> Source: Error (ignored, no contributing names)
+  end
+else
+  Source -> Nordic: GET /latency-problems/nordic
+  alt Responds in time
+    Nordic --> Source: List of nordic gods
+  else Timeout or failure
+    Nordic --> Source: Error (ignored, no contributing names)
+  end
+end
+
+Source --> Service: God names from the sources that responded
 
 end
 
-group Read process
+Service -> Service: Keep names starting with filter\n(exactly one code point, case-sensitive)
 
-"User" -> "REST API": GET /api/v1/gods/greek
-"REST API" -> "Greek God Service": Find greek gods
-"Greek God Service" -> "Quarkus JDBC Repository": Query greek gods
-"Quarkus JDBC Repository" -> "PostgreSQL Database": SELECT id, name FROM greek_god
-"PostgreSQL Database" --> "Quarkus JDBC Repository": Rows with id and name
-"Quarkus JDBC Repository" --> "Greek God Service": Greek gods
-"Greek God Service" --> "REST API": Greek gods
-"User" <-- "REST API": List of greek gods
-
+loop For each filtered name
+  Service -> Converter: Convert name to decimal
+  note right of Converter
+    Each char -> Unicode int, concatenated as a string
+    e.g. Zeus -> 90101117115
+  end note
+  Converter --> Service: Decimal value
 end
+
+Service -> Service: Sum all decimal values\n(0 when no names contribute)
+
+Service --> Api: Sum
+Api --> Client: 200 OK {"sum": "78179288397447443426"}
 
 @enduml
