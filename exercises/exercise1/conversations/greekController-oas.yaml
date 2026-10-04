@@ -20,27 +20,52 @@
     }
   ],
   "paths": {
-    "/api/v1/gods/greek": {
+    "/gods/stats/sum": {
       "get": {
         "tags": [
-          "Greek Gods"
+          "Gods Stats"
         ],
-        "summary": "Get all Greek gods",
-        "description": "Returns a list of Greek gods",
-        "operationId": "getGreekGods",
+        "summary": "Get sum of gods stats",
+        "description": "Returns the sum computed over the gods from the requested sources, using the given filter",
+        "operationId": "getGodsSum",
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "description": "Filter applied to the gods before computing the sum",
+            "schema": {
+              "type": "string"
+            },
+            "example": "N"
+          },
+          {
+            "name": "sources",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of sources to include",
+            "schema": {
+              "type": "string"
+            },
+            "example": "greek,roman,nordic"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Successful operation",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/GreekGod"
-                  }
+                  "$ref": "#/components/schemas/SumResponse"
+                },
+                "example": {
+                  "sum": "78179288397447443426"
                 }
               }
             }
+          },
+          "400": {
+            "description": "Invalid request: filter is missing, empty or not exactly one Unicode code point, or sources contains an unknown source name"
           },
           "500": {
             "description": "Internal server error"
@@ -51,6 +76,19 @@
   },
   "components": {
     "schemas": {
+      "SumResponse": {
+        "type": "object",
+        "required": [
+          "sum"
+        ],
+        "properties": {
+          "sum": {
+            "type": "string",
+            "description": "Sum as a decimal string (exceeds 64-bit integer range)",
+            "example": "78179288397447443426"
+          }
+        }
+      },
       "GreekGod": {
         "type": "object",
         "required": [
