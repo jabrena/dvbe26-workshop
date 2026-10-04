@@ -22,4 +22,8 @@ https://m.devoxx.com/events/dvbe26/talks/8190/technical-workshop-on-ainative-too
 - SDKMAN installed
 - Java 25 installed
 - Maven 3.9.14 installed
-- IDE like Intellij or VSCode
+- IDE like Intellij, VSCode or similar
+
+## References
+
+- https://github.com/jabrena/latency-problems
