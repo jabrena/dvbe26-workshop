@@ -157,7 +157,8 @@ Implement and improve Java applications with Maven, design, coding, testing, sec
 ## Prerrequisites
 
 - Laptop
-- IA tool like Claude Code, Cursor, Codex, Github Copilot
+- IA tool like Claude Code, Cursor, Codex
+- Openspec CLI
 - Git
 - SDKMAN installed
 - Java 25 installed
